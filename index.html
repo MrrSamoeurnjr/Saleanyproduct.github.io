@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://kit.fontawesome.com/e8fa2e31b4.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make project for new client</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:ital,wght@0,400;0,500;0,600;1,500;1,800&family=Poppins:ital,wght@0,200;0,300;0,400;1,100;1,300&family=REM&family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    body {
+        margin: 4vh;
+    }
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .sideBar {
+        width: 25%;
+        border: 1px solid #eee;
+        height: 92vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 15px;
+        box-shadow: 0px 0px 3px grey;
+        border-radius: 10px;
+    }
+    .data {
+        width: 75%;
+        overflow: auto;
+        height: 92vh;
+    }
+    .dots {
+        padding: 5px;
+    }
+    .fa-solid {
+        color:red;
+    }
+    .search_bar{
+        width: 100%;
+        background-color:  #eee;
+        padding: 9px; 
+        border-radius: 10px;
+        display: flex;
+        align-items: center; 
+        justify-content: space-around;
+    }
+    input{
+        text-align: center; 
+        font-size: 15px;
+        border: none;
+        background: none;
+        padding: 7px;
+        width: 100%;
+        outline:none;
+    }
+    .sidefood{
+        padding: 5px;
+    }
+    .sidefood .search_icons{
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+    .fa-brands {
+        font-size: 25px;
+    }
+    .fa-brands:hover{
+        color: brown;
+    }
+    .top {
+        padding: 10px;
+        background-color: #eee;
+        margin: 0px 0px 0px 20px;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        height: 60px;
+        border-radius: 5px;
+        flex-wrap: wrap;
+        box-shadow: 0px 0px 3px grey;
+    }
+    .header {
+        padding: 10px;
+        background-color: black;
+        margin: 3vh 0px 0px 20px;
+        height: 100px;
+        border-radius: 10px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    .header p {
+        color: #fff;
+        font-size: 20px;
+    }
+    #body {
+        display: flex;
+        margin: 10px 0px 0px 20px;
+        align-items: center;
+        justify-content: center;
+    }
+    #product {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-gap: 20px;
+    }
+    .box{
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    img {
+        width: 100%;
+        height: 230px;
+        padding: 10px;
+    }
+    .bottom  {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .bottom h4 {
+        color: red;
+        font-size: 15px;
+    }
+    button {
+        margin:8px;
+        border: none;
+        padding: 5px;
+        background-color: black;
+        color: #fff;
+        font-size: 12px;
+        box-shadow: 0px 0px 1px black;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color: azure;
+        color: black;
+    }
+    .container2 {
+        margin: 30px auto;
+        max-width: 1300px;
+    }
+    .slide_show {
+        width: 100%;
+        background-color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .slide_show img {
+        width: 100%;
+        border-radius: 10px;
+    }
+    .filtere_buttons {
+        margin:  20px;
+        display:flex;
+        flex-wrap: wrap;
+    }
+    button#click_move{
+        width: 20%;
+        padding: 10px;
+        /* background-color: #eee;
+        color: black;
+        font-weight: bold;
+        box-shadow: 0 0 10px  rgba(0,0,0,0.05); */
+    }
+    .filter_cards {
+        margin: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .card {
+        flex-basis: 300px;
+        /* background-color: #eee; */
+        box-shadow: 0 0 10px  rgba(0,0,0,0.05); 
+        padding: 5px;
+    }
+    .card:hover{
+        background-color: #eee;
+    }
+    .card img {
+        width: 100%;
+        height: 240px;
+    }
+    .card .addinfo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .card h4 {
+        color: red;
+    }
+    .card.hide{
+        display: none;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="sideBar">
+            <div class="sidehead">
+                <div class="dots">
+                    <i class="fa-solid fa-circle"></i>
+                    <i class="fa-solid fa-circle" style="color: gray;"></i>
+                    <i class="fa-solid fa-circle"></i>
+                </div>
+                <hr style="margin: 15px; border: 1px solid #eee;">
+            </div>
+            <div class="side_body" style="height: 68vh;">
+                <div class="search_bar">
+                    <input type="text" name="searchbar" id="searchbar" placeholder="Search...">
+                    <i class="fa-solid fa-magnifying-glass" style="color:gray;"></i>
+                </div>
+            </div>
+            <div class="sidefood">
+                <hr style="margin: 10px; border: 1px solid #eee;">
+                <div class="search_icons">
+                    <i class="fa-brands fa-youtube"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+        </div>
+        <div class="data">
+            <div class="top">
+                <p><strong>Tell: </strong>0978677393</p>
+                <p><strong>Email: </strong>samoeurnart6@gmail.com</p>
+            </div>
+            <div class="header">
+                <p>BUYEVERYTHING</p>
+            </div>
+            <div id="body">
+                <div id="product"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container2">
+        <div class="slide_show">
+            <img id="image">
+        </div>
+        <div class="filtere_buttons">
+            <button id="click_move" class="active" data-name="all">Show all</button>
+            <button id="click_move" data-name="laptop">Laptop</button>
+            <button id="click_move" data-name="tv">TV</button>
+            <button id="click_move" data-name="phone">Phone</button>
+        </div>
+        <div class="filter_cards">
+            <div class="card" data-name="laptop">
+                <img src="imges/pg1.jpg" alt="laptop">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="laptop">
+                <img src="imges/pg1.jpg" alt="laptop">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="laptop">
+                <img src="imges/pg1.jpg" alt="laptop">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="laptop">
+                <img src="imges/pg1.jpg" alt="laptop">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="laptop">
+                <img src="imges/pg2.jpg" alt="laptop">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="laptop">
+                <img src="imges/pg2.jpg" alt="laptop">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="laptop">
+                <img src="imges/pg2.jpg" alt="laptop">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="tv">
+                <img src="imges/pg3.jpg" alt="tv">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="tv">
+                <img src="imges/pg3.jpg" alt="tv">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="tv">
+                <img src="imges/pg3.jpg" alt="tv">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="tv">
+                <img src="imges/pg4.jpg" alt="tv">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="phone">
+                <img src="imges/pg5.jpg" alt="phone">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="phone">
+                <img src="imges/pg5.jpg" alt="phone">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+            <div class="card" data-name="phone">
+                <img src="imges/pg5.jpg" alt="phone">
+                <div class="addinfo">
+                    <p>Laptop</p>
+                    <h4>$1000</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const filterButtons = document.querySelectorAll(".filtere_buttons button");
+        const filterableCards = document.querySelectorAll(".filter_cards .card");
+        console.log( filterButtons , filterableCards)
+        const filercards = e => {
+            document.querySelector(".active").classList.remove("active");
+            e.target.classList.add("active");
+            console.log(e.target)
+            filterableCards.forEach(card => {
+                card.classList.add("hide");
+                if(card.dataset.name === e.target.dataset.name || e.target.dataset.name == "all"){
+                    card.classList.remove("hide");
+                }
+            })
+        }
+        filterButtons.forEach(button => button.addEventListener("click",filercards));
+        const images = ["imges/pg1.jpg","imges/pg2.jpg","imges/pg3.jpg","imges/pg4.jpg","imges/pg5.jpg"];
+        const time = 1000;
+        const img = document.getElementById("image")
+        console.log(img)
+        let i = 0 ;
+        const changImage = () => {
+            img.src = images[i];
+            if ( i<images.length-1){
+                i++;
+            }
+            else {
+                i = 0 ;
+            }
+            setTimeout("changImage()" , time);
+        }
+        window.onload = changImage;
+        // changImage();
+        const product = [
+            {
+                id: 0,
+                title:'Foldable Mobile',
+                image:'imges/pg1.jpg',
+                price:400,
+            },
+            {
+                id: 0,
+                title:'Foldable Mobile',
+                image:'imges/pg1.jpg',
+                price:400,
+            },
+            {
+                id: 0,
+                title:'Foldable Mobile',
+                image:'imges/pg1.jpg',
+                price:400,
+            },
+            {
+                id: 0,
+                title:'Foldable Mobile',
+                image:'imges/pg1.jpg',
+                price:400,
+            },
+            {
+                id: 0,
+                title:'Foldable Mobile',
+                image:'imges/pg1.jpg',
+                price:400,
+            },
+            {
+                id: 1,
+                title:'Air Pods Pro',
+                image:'imges/pg2.jpg',
+                price:500,
+            },
+            {
+                id: 1,
+                title:'Air Pods Pro',
+                image:'imges/pg2.jpg',
+                price:500,
+            },
+            {
+                id: 1,
+                title:'Air Pods Pro',
+                image:'imges/pg2.jpg',
+                price:500,
+            },
+            {
+                id: 1,
+                title:'Air Pods Pro',
+                image:'imges/pg2.jpg',
+                price:500,
+            },
+            {
+                id: 2,
+                title:'250D DSLR Camera',
+                image:'imges/pg3.jpg',
+                price:1000,
+            },
+            {
+                id: 2,
+                title:'250D DSLR Camera',
+                image:'imges/pg3.jpg',
+                price:1000,
+            },
+            {
+                id: 3,
+                title:'Headphones',
+                image:'imges/pg4.jpg',
+                price:1100,
+            },
+            {
+                id: 3,
+                title:'Headphones',
+                image:'imges/pg4.jpg',
+                price:1100,
+            },
+            {
+                id: 4,
+                title:'Smart Watch',
+                image:'imges/pg5.jpg',
+                price:1200,
+            },
+            {
+                id: 4,
+                title:'Smart Watch',
+                image:'imges/pg5.jpg',
+                price:1200,
+            },
+            {
+                id: 5,
+                title:'Smart Watch',
+                image:'imges/pg5.jpg',
+                price:1200,
+            },
+            {
+                id: 5,
+                title:'Smart Watch',
+                image:'imges/pg5.jpg',
+                price:1200,
+            },
+            {
+                id: 5,
+                title:'Smart Watch',
+                image:'imges/pg5.jpg',
+                price:1200,
+            },
+            {
+                id: 5,
+                title:'Smart Watch',
+                image:'imges/pg5.jpg',
+                price:1200,
+            },
+            {
+                id: 5,
+                title:'Smart Watch',
+                image:'imges/pg5.jpg',
+                price:1200,
+            },
+            {
+                id: 5,
+                title:'Smart Watch',
+                image:'imges/pg5.jpg',
+                price:1200,
+            },
+        ]
+        const categories = [...new Set(product.map((item)=> {
+            return item;
+        }))]
+        document.querySelector(".search_bar").addEventListener('keyup',(e)=> {
+            const searchData = e.target.value.toLowerCase();
+            const filterData = categories.filter((item)=> {
+                return (
+                    item.title.toLocaleLowerCase().includes(searchData)
+                )
+            })
+            displayItem(filterData);
+        })
+        const displayItem = (items)=>{
+            document.getElementById('product').innerHTML = items.map((item)=> {
+                var{image,title,price} = item;
+                return (
+                    `
+                    <div class="box">
+                            <div class="img_box">
+                                <img class="images" src=${image}></img>
+                            </div>
+                            <div class = "bottom">
+                                <p>${title}</p>
+                                <h4>$${price}</h4>
+                                <button>Add to card</button>
+                            </div>
+                        </div>
+                    `
+                )
+            }).join('')
+        }
+        displayItem(categories)
+    </script>
+</body>
+</html>
